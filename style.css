@@ -1,0 +1,355 @@
+Perfect 👍 Let’s split the code into three separate files:
+
+index.html → HTML structure
+
+style.css → All styles
+
+script.js → Any JavaScript (smooth scrolling & simple animation)
+
+---
+
+1️⃣ index.html
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <header>
+
+    <h1>My Portfolio</h1>
+
+    <nav>
+
+      <a href="#home">Home</a>
+
+      <a href="#about">About</a>
+
+      <a href="#projects">Projects</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <!-- Home Section -->
+
+  <section id="home">
+
+    <img src="your-image.jpg" alt="My Photo">
+
+    <h2>Welcome to My Portfolio</h2>
+
+    <p>Hi, I'm showcasing my work and skills here.</p>
+
+  </section>
+
+  <!-- About Section -->
+
+  <section id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+
+      I am passionate about building digital solutions and web projects. 
+
+      This portfolio represents my journey and skills.
+
+    </p>
+
+  </section>
+
+  <!-- Projects Section -->
+
+  <section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="project-card">
+
+      <h3>Project 1</h3>
+
+      <p>Description of your first project.</p>
+
+    </div>
+
+    <div class="project-card">
+
+      <h3>Project 2</h3>
+
+      <p>Description of your second project.</p>
+
+    </div>
+
+  </section>
+
+  <!-- Contact Section -->
+
+  <section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <p>Get in touch with me via WhatsApp:</p>
+
+    <a class="whatsapp-btn" href="https://wa.me/8825798516" target="_blank">
+
+      Chat on WhatsApp
+
+    </a>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>© 2025 My Portfolio. All Rights Reserved.</p>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
+
+---
+
+2️⃣ style.css
+
+body {
+
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background-color: #000;
+
+  color: #fff;
+
+  scroll-behavior: smooth;
+
+}
+
+header {
+
+  position: fixed;
+
+  width: 100%;
+
+  top: 0;
+
+  background: #111;
+
+  padding: 15px 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  z-index: 1000;
+
+}
+
+header h1 {
+
+  font-size: 20px;
+
+  margin: 0;
+
+  color: #00ffcc;
+
+}
+
+nav a {
+
+  color: #fff;
+
+  text-decoration: none;
+
+  margin: 0 15px;
+
+  transition: 0.3s;
+
+}
+
+nav a:hover {
+
+  color: #00ffcc;
+
+}
+
+section {
+
+  min-height: 100vh;
+
+  padding: 100px 20px 50px;
+
+  text-align: center;
+
+}
+
+#home img {
+
+  width: 180px;
+
+  height: 180px;
+
+  border-radius: 50%;
+
+  border: 4px solid #00ffcc;
+
+  margin-top: 40px;
+
+}
+
+h2 {
+
+  color: #00ffcc;
+
+  margin-bottom: 15px;
+
+}
+
+.project-card {
+
+  background: #111;
+
+  padding: 20px;
+
+  margin: 15px auto;
+
+  border-radius: 10px;
+
+  width: 80%;
+
+  max-width: 500px;
+
+  box-shadow: 0 0 10px #00ffcc33;
+
+}
+
+footer {
+
+  background: #111;
+
+  text-align: center;
+
+  padding: 15px;
+
+  color: #aaa;
+
+}
+
+.whatsapp-btn {
+
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding: 12px 20px;
+
+  background: #25D366;
+
+  color: #000;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+
+}
+
+.whatsapp-btn:hover {
+
+  background: #1ebf5c;
+
+}
+
+/* Fade-in animation */
+
+.fade-in {
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  transition: all 0.8s ease-out;
+
+}
+
+.fade-in.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+---
+
+3️⃣ script.js
+
+// Fade-in effect when scrolling
+
+const sections = document.querySelectorAll("section");
+
+function revealSections() {
+
+  const triggerBottom = window.innerHeight * 0.85;
+
+  sections.forEach((sec) => {
+
+    const secTop = sec.getBoundingClientRect().top;
+
+    if (secTop < triggerBottom) {
+
+      sec.classList.add("visible");
+
+    }
+
+  });
+
+}
+
+window.addEventListener("scroll", revealSections);
+
+// Initialize
+
+sections.forEach(sec => sec.classList.add("fade-in"));
+
+revealSections();
+
+---
+
+✅ How to use:
+
+1. Save the three files in the same folder (index.html, style.css, script.js).
+
+2. Put your image in the same folder and rename it your-image.jpg (or update the filename in the HTML).
+
+3. Open index.html in a browser to view your portfolio.
+
+Do you want me to also make the Projects section load as a clickable gallery (with JavaScript pop-ups for project details), or keep them as simple cards?
